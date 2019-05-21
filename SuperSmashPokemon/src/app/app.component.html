@@ -1,0 +1,30 @@
+<header>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</header>
+
+<body>
+
+
+<router-outlet></router-outlet>
+<div class="container-fluid ">
+  <div class="row">
+      <div class="col-xs-6">
+          <app-select-fighter [titleI]="'Choose your first fighter'"></app-select-fighter>
+        </div>
+        <div class="col-xs-6">
+          <app-select-fighter [titleI]="'Choose your second fighter'"></app-select-fighter>
+        </div>
+  </div>
+</div>
+
+</body>
+
+
+

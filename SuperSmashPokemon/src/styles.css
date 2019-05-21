@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+.selectpkm{
+    border: solid;
+}
+.selectpkm img{
+    min-height: 50px;
+    min-width:50px;
+    max-height: 100px;
+    max-width:100px;
+}
+.nopadding{
+    padding: 0px !important;
+}
+.select-fihgter{
+	height: 500px;
+	overflow-y: scroll;
+}

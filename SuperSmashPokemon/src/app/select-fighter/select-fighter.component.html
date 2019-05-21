@@ -1,0 +1,14 @@
+<h3>{{title}}<span *ngIf="idSelected.length>0"> : {{pkmSelected._name}}</span></h3>
+<div class ="select-fihgter">
+  <div *ngFor="let pkm of pokelist; let i = index" class="col-xs-12 col-md-4 pokefor nopadding" (click)="selectid(i)">
+    <div class="btn col-xs-12 nopadding"  [attr.disabled]="pkm._id == idSelected? true : null"
+    [ngClass]="{'btn-warning' : pkm._id == idSelected, 'btn-info' : pkm._id != idSelected}">
+      <div class="col-xs-6 nopadding">
+        <b>{{pkm._name}}</b><br>
+        <img  src="../../assets/types/{{pkm._type._name}}.jpg" width="50" height="25">
+      </div>
+      <!--img  src="../../assets/images/{{pkm._id + pkm._name}}.png" class="col-xs-5 nopadding"-->
+      <img  src="https://www.pokemontrash.com/pokedex/images/sugimori/{{pkm._id}}.png" class="col-xs-5 nopadding"height="75" width="50">
+    <div>
+  </div>
+</div>
