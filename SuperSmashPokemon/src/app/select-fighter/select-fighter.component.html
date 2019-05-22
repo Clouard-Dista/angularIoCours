@@ -1,4 +1,3 @@
-<h3>{{title}}<span *ngIf="idSelected.length>0"> : {{pkmSelected._name}}</span></h3>
 <div class ="select-fihgter">
   <div *ngFor="let pkm of pokelist; let i = index" class="col-xs-12 col-md-4 pokefor nopadding" (click)="selectid(i)">
     <div class="btn col-xs-12 nopadding"  [attr.disabled]="pkm._id == idSelected? true : null"

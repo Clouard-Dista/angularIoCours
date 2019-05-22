@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { SelectFighterComponent } from './select-fighter/select-fighter.component';
 import { BattleComponent } from './battle/battle.component';
 import { SelectScreenComponent } from './select-screen/select-screen.component';
+import { BattleLoggerComponent } from './battle-logger/battle-logger.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectFighterComponent,
     BattleComponent,
-    SelectScreenComponent
+    SelectScreenComponent,
+    BattleLoggerComponent
   ],
   imports: [
     BrowserModule,

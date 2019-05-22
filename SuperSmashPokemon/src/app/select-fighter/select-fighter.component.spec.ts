@@ -25,7 +25,7 @@ describe('SelectFighterComponent', () => {
   });
 
   it('should get name', () => {
-    expect(component.pokelist).toBeGreaterThan(0);
+    expect(component.pokelist.length).toBeGreaterThan(0);
   });
 
 });

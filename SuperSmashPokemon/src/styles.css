@@ -15,3 +15,83 @@
 	height: 500px;
 	overflow-y: scroll;
 }
+.fight {
+    height: 100px;
+    width:200px;
+    vertical-align: middle;
+    margin-left: -50px;
+}
+
+.fightcircle {
+    border-radius: 100% !important;
+    height: 100px;
+    width:100px;
+    margin: auto;
+    background-color: red !important;
+    display: block !important;
+}
+.notEffective{
+    color:#878787;
+}
+.effective{
+    text-decoration: overline underline;
+    text-shadow: 3px 2px red;
+}
+.container-fluid {
+    width: 1400px;
+    margin: auto;
+}
+.pokepixel{
+    image-rendering: crisp-edges;
+}
+.pokemon,.screenHover,.screenHover img,.explosion{
+    position: relative;
+}
+.screenFight{
+    margin: auto;
+    width: 400px;
+    display: block !important;
+    max-height: 298px;
+    overflow: hidden;
+}
+.pokemon.first{
+    left: 26px;
+    top: -217px;
+    animation: bouncefirst 0.35s ease infinite alternate;
+}
+.pokemon{
+    cursor: crosshair;
+}
+.pokemon.second{
+    left: 71px;
+    top: -301px;
+    animation: bouncesecond 0.35s ease infinite alternate;
+}
+.dead{
+    transition: none !important;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+.explosion{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.9s, opacity 0.9s linear;
+}
+.explosion.first{
+    left: 31px;
+    top: -365px;
+}
+.explosion.second{
+    left: 76px;
+    top: -442px;
+}
+@keyframes bouncefirst{
+    from   {transform: translateY(-20px) scaleX(-1);}
+    to {transform: translateY(0) scaleX(-1);}
+}
+
+@keyframes bouncesecond{
+    from {transform: translateY(0);}
+    to   {transform: translateY(-20px);}
+}

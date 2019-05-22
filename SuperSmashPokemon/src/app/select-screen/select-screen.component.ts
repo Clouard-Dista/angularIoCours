@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter} from '@angular/core';
 import { Pokemon } from '../class/pokemon.class';
 
 @Component({
@@ -10,20 +10,31 @@ import { Pokemon } from '../class/pokemon.class';
 export class SelectScreenComponent implements OnInit {
 
 
-  pokeSelected : Pokemon[];
+  pokeSelected: Pokemon[];
   constructor() {
-    this.pokeSelected =[];
+    this.pokeSelected = [];
   }
+
+  @Input()
+  set rest(value: boolean ) {
+    if (value){
+      this.pokeSelected = [];
+    }
+  }
+  @Output() selectedFighter = new EventEmitter<Pokemon[]>();
 
   ngOnInit() {
   }
 
-  isReady(){
-    return this.pokeSelected[0]!=undefined && this.pokeSelected[1]!=undefined;
+  isReady() {
+    return this.pokeSelected[0] !== undefined && this.pokeSelected[1] !== undefined;
   }
 
-  selectedPKM(pkm: Pokemon,arr :number) {
-    console.log("2")
-		this.pokeSelected[arr] = pkm;
-	}
+  selectedPKM(pkm: Pokemon, arr: number) {
+    this.pokeSelected[arr] = pkm;
+  }
+
+  startfight() {
+    this.selectedFighter.emit(this.pokeSelected);
+  }
 }
