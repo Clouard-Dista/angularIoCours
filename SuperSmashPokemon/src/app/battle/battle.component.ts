@@ -3,17 +3,17 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Pokemon } from '../class/pokemon.class';
 import { BattleService } from '../battle.service';
 
-
-
 @Component({
   selector: 'app-battle',
   templateUrl: './battle.component.html',
-  styleUrls: ['./battle.component.css']
+  styleUrls: ['./battle.component.css'],
+  providers: [BattleService]
 })
 export class BattleComponent implements OnInit {
 
   pokemonOne: Pokemon;
   pokemonTwo: Pokemon;
+  pause: boolean;
   attackEvent = new EventEmitter<string>();
 
   @Input()
@@ -28,20 +28,21 @@ export class BattleComponent implements OnInit {
 
   @Output() endFight = new EventEmitter<Pokemon>();
 
-  constructor() {
-
+  constructor(private battleService: BattleService) {
+    this.attackEvent = battleService.getAttackEvent();
+    console.log("Attack event " +  this.attackEvent.toString);
   }
 
   public getPokemonStartFight(poke_one: Pokemon, poke_two: Pokemon): number {
     if (poke_one._speed < poke_two._speed) {
         return 2;
-    } else {
-        return 1;
     }
+    return 1;
   }
 
   ngOnInit() {
-      // let BattleService = new BattleService();
+    this.pause = true;
+    this.attackEvent = this.battleService.getAttackEvent();
   }
   first() {
     return this.pokemonOne._speed > this.pokemonTwo._speed ? this.pokemonOne : this.pokemonTwo;
@@ -57,8 +58,6 @@ export class BattleComponent implements OnInit {
 
       console.log('TOUR ' + i)
       if(i % 2 === 0){
-
-
           console.log(this.pokemonOne._name + ' attaque ' + this.pokemonTwo._name + ' de ' + this.pokemonOne._attack._power + ' point(s)');
           this.pokemonTwo.receiveDamage(this.pokemonOne._attack._power);
           console.log('La vie de ' + this.pokemonTwo._name + ' est a  ' + this.pokemonTwo._hp);
@@ -68,7 +67,7 @@ export class BattleComponent implements OnInit {
           console.log('La vie de ' + this.pokemonOne._name + ' est à ' + this.pokemonTwo._hp);
       }
     }
-  //   while (this.finish() !== true) {
+  // if(this.finish() !== true) {
   //       console.log(first._name + ' attaque');
   //       first._attack.play(second);
   //       if (!second.KO()) {

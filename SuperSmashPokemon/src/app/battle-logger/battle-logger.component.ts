@@ -12,12 +12,10 @@ export class BattleLoggerComponent implements OnInit {
 
   constructor() { }
 
-
   @Input() attaqueEvent: string;
 
-
   ngOnInit() {
-    // this.attackEvent = ;
+
   }
 
 }

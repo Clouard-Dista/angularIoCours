@@ -7,4 +7,10 @@
   <img  src="../../assets/explosion.gif" [ngClass]="{'explosion first' : pokemonOne.KO()}" width="150" height="150">
   <img  src="../../assets/explosion.gif" [ngClass]="{'explosion second' : pokemonTwo.KO()}" width="150" height="150">
 </div>
-<app-battle-logger [attaqueEvent]=()></app-battle-logger>
+<button type="button" class="btn" (click)="pause=!pause" [ngClass]="{'btn-primary' : pause,'btn-secondary' : !pause}">{{!pause?"Pause":"Play"}}</button>
+<table>
+  <tr>
+      <app-battle-logger  *ngFor="let eventAttack of attackEvent" app-table-logger [attaqueEvent]="attackEvent"></app-battle-logger>
+  </tr>
+</table>
+<!-- <app-battle-logger [attaqueEvent]=()></app-battle-logger> -->

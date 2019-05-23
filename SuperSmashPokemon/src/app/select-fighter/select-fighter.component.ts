@@ -14,6 +14,7 @@ export class SelectFighterComponent implements OnInit {
   idSelected: string;
   pkmSelected: Pokemon;
   title: string;
+
   constructor() {
     this.idSelected = '';
     this.pokelist = [] ;

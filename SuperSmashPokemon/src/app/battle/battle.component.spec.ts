@@ -22,18 +22,34 @@ describe('BattleComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BattleComponent);
     component = fixture.componentInstance;
-    component.pokemonOne = new Pokemon(1, 'a', new ElementType(1, 'toto', [1]), 10, 12, );
-    component.pokemonTwo = new Pokemon(1, 'a', new ElementType(1, 'toto', [1]), 10, 12, );
+    component.pokemonOne = new Pokemon(1, 'pikachu', new ElementType(1, 'toto', [1]), 30, 12, );
+    component.pokemonTwo = new Pokemon(1, 'dracaufeu', new ElementType(1, 'toto', [1]), 15, 12, );
     fixture.detectChanges();
   });
 
   // id: number, name: string, type: ElementType, speed: number, pv: number, attack?: Attack ||pokemon
   // name: string, type: ElementType, accuracy: number, power: number ||attack
   it('should create', () => {
-    let element =  new ElementType(1, 'toto', [1]);
+    /*let element =  new ElementType(1, 'toto', [1]);
     let attack = new Attack('attack_1', element, 20, 50);
     let pA1 = new Pokemon(1, 'a', element, 10, 12, );
     let pA2 = new Pokemon(1, 'a', element, 10, 12, );
-    // component.getPokemonStartFight(pA1, pA2);
+   component.getPokemonStartFight(pA1, pA2);*/
+   expect(component).toBeTruthy();
   });
+
+  it('pikachu start', () => {
+   expect(component.getPokemonStartFight(component.pokemonOne, component.pokemonTwo)).toEqual(1);
+  });
+
+  it('chenipan start', () => {
+    const pokemonThree = new Pokemon(1, 'chenipan', new ElementType(1, 'toto', [1]), 30, 12, );
+    expect(component.getPokemonStartFight(component.pokemonTwo, pokemonThree)).toEqual(2);
+   });
+
+  it('one when same speed', () => {
+    const pokemonThree = new Pokemon(1, 'chenipan', new ElementType(1, 'toto', [1]), 30, 12, );
+    expect(component.getPokemonStartFight(component.pokemonOne, pokemonThree)).toEqual(1);
+   });
+
 });

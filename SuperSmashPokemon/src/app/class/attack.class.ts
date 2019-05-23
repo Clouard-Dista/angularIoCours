@@ -32,7 +32,7 @@ export class Attack {
             break;
       }
     } else {
-      resumFight += 'and misses his attack ' + this._name + '<img  src="../../assets/types/'+cible._type._name+'.jpg" width="30" height="15">)';
+      resumFight += 'and misses his attack ' + this._name + '<img  src="../../assets/types/'+cible._type._name+'.jpg" width="30" height="15">.';
     }
     return resumFight;
   }
