@@ -22,7 +22,7 @@ export class BattleByStepService implements OnDestroy {
         this.curentStep = 0;
     }
 
-    private getFirst(): number {
+    public getFirst(): number {
         return this.pokemons[0]._speed > this.pokemons[1]._speed ? 0 : 1;
     }
 
