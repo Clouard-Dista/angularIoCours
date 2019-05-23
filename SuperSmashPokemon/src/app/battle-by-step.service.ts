@@ -31,7 +31,7 @@ export class BattleByStepService implements OnDestroy {
     }
 
     public ready(): boolean {
-        return this.pokemons.length != 0;
+        return this.pokemons.length !== 0;
     }
 
     private start(){
@@ -55,23 +55,25 @@ export class BattleByStepService implements OnDestroy {
             this.start();
         }
     }
-    public step(): void {
-        if (this.finish()) {
-            this.logger.push('The fight is over!');
-            this.loop.unsubscribe();
-            return;
-        }
-        this.curentStep ++;
-        let returnValue = 'Step ' + this.curentStep + ': <br>';
-        const cible = this.nextAttack === 0 ? 1 : 0 ;
-        returnValue += '<span class="' +
-            this.pokemons[this.nextAttack]._type._name + '">'+
-            this.pokemons[this.nextAttack]._name + '</span> attack <span class="' +
-            this.pokemons[cible]._type._name + '">' +
-            this.pokemons[cible]._name + '</span> '
-        returnValue += this.pokemons[this.nextAttack]._attack.play(this.pokemons[cible]);
-        this.nextAttack = cible;
-        this.logger.push(returnValue);
+    public step(): boolean {
+      let res = false;
+      if (this.finish()) {
+          this.logger.push('The fight is over!');
+          this.loop.unsubscribe();
+          return;
+      }
+      this.curentStep ++;
+      let returnValue = 'Step ' + this.curentStep + ': <br>';
+      const cible = this.nextAttack === 0 ? 1 : 0 ;
+      returnValue += '<span class="' +
+          this.pokemons[this.nextAttack]._type._name + '">'+
+          this.pokemons[this.nextAttack]._name + '</span> attack <span class="' +
+          this.pokemons[cible]._type._name + '">' +
+          this.pokemons[cible]._name + '</span> ';
+      returnValue += this.pokemons[this.nextAttack]._attack.play(this.pokemons[cible]);
+      this.nextAttack = cible;
+      this.logger.push(returnValue);
+      return res;
     }
 
     ngOnDestroy() { this.loop.unsubscribe(); }
