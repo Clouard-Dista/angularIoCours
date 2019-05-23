@@ -13,19 +13,19 @@ export class BattleComponent implements OnInit {
 
   pokemons: Pokemon[];
   pause: boolean;
-  today: number = Date.now();
-  
+  today: number;
+
   @Input() set selectedFighter(value: Pokemon[]) {
     this.pokemons = value;
     this.battleByStepService.param(this.pokemons);
-
-    for(let i = 0 ; i < 10; i++)
-      this.battleByStepService.step();
   }
 
   @Output() endFight = new EventEmitter<Pokemon>();
 
   constructor(private battleByStepService: BattleByStepService) {
+    setInterval(() => {
+      this.today = Date.now();
+    }, 1);
   }
 
   ngOnInit() {

@@ -35,7 +35,7 @@
 }
 .effective{
     text-decoration: overline underline;
-    text-shadow: 3px 2px red;
+    font-weight: bold
 }
 .container-fluid {
     width: 1400px;
