@@ -32,11 +32,4 @@ export class Pokemon {
             this._hp = 0;
         }
     }
-
-    public receiveDamage(damage: number){
-      this._hp -= damage;
-      if(this._hp < 0){
-          this._hp = 0;
-      }
-  }
 }
