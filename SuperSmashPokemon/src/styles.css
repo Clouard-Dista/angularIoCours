@@ -35,7 +35,7 @@
 }
 .effective{
     text-decoration: overline underline;
-    text-shadow: 3px 2px red;
+    font-weight: bold
 }
 .container-fluid {
     width: 1400px;
@@ -98,3 +98,21 @@
 .pauseCss{
     animation-play-state: paused !important;
 }
+.acier{text-shadow: 0 0 0.2em #B8B8D0 , 0 0 0.2em #B8B8D0;}
+.combat{text-shadow: 0 0 0.2em #C03028 , 0 0 0.2em #C03028;}
+.dragon{text-shadow: 0 0 0.2em #7038F8 , 0 0 0.2em #7038F8;}
+.eau{text-shadow: 0 0 0.2em #6890F0 , 0 0 0.2em #6890F0;}
+.electrik{text-shadow: 0 0 0.2em #F8D030 , 0 0 0.2em #F8D030;}
+.fee{text-shadow: 0 0 0.2em #EE99AC , 0 0 0.2em #EE99AC;}
+.feu{text-shadow: 0 0 0.2em #F08030 , 0 0 0.2em #F08030;}
+.glace{text-shadow: 0 0 0.2em #98D8D8 , 0 0 0.2em #98D8D8;}
+.insecte{text-shadow: 0 0 0.2em #A8B820 , 0 0 0.2em #A8B820;}
+.normal{text-shadow: 0 0 0.2em #A8A878 , 0 0 0.2em #A8A878;}
+.plante{text-shadow: 0 0 0.2em #78C850 , 0 0 0.2em #78C850;}
+.poison{text-shadow: 0 0 0.2em #A040A0 , 0 0 0.2em #A040A0;}
+.psy{text-shadow: 0 0 0.2em #F85888 , 0 0 0.2em #F85888;}
+.roche{text-shadow: 0 0 0.2em #B8A038 , 0 0 0.2em #B8A038;}
+.sol{text-shadow: 0 0 0.2em #E0C068 , 0 0 0.2em #E0C068;}
+.spectre{text-shadow: 0 0 0.2em #705898 , 0 0 0.2em #705898;}
+.tenebres{text-shadow: 0 0 0.2em #705848 , 0 0 0.2em #705848;}
+.vol{text-shadow: 0 0 0.2em #A890F0 , 0 0 0.2em #A890F0;}

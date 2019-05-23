@@ -1,16 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy} from '@angular/core';
 import {LoggerService} from './logger.service';
 import {Pokemon} from './class/pokemon.class';
+import {Observable, Subscriber } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 
-export class BattleByStepService {
+export class BattleByStepService implements OnDestroy {
     private pokemons: Pokemon[] = [];
     private nextAttack: number = 0;
     private curentStep: number = 0;
+    private loop;
 
-    constructor(public logger: LoggerService) { }
+  	constructor(public logger: LoggerService) {
+    }
 
     public param(pokemons: Pokemon[]): void {
         this.pokemons = pokemons;
@@ -30,16 +34,45 @@ export class BattleByStepService {
         return this.pokemons.length != 0;
     }
 
-    public step(): string {
+    private start(){
+        const source = new Observable(observer => {
+            const interval = setInterval(() => observer.next(this.step()), 1000);
+            return () => {
+                observer.complete();
+                clearInterval(interval);
+            };
+        });
+        this.loop = source.subscribe();
+    }
+
+    private pause(){
+        this.loop.unsubscribe();
+    }
+    public startAndStop(pause: boolean){
+        if(pause){
+            this.pause();
+        }else{
+            this.start();
+        }
+    }
+    public step(): void {
         if (this.finish()) {
-            return 'The fight is over';
+            this.logger.push('The fight is over!');
+            this.loop.unsubscribe();
+            return;
         }
         this.curentStep ++;
-        let returnValue = 'Step ' + this.curentStep + ': ';
+        let returnValue = 'Step ' + this.curentStep + ': <br>';
         const cible = this.nextAttack === 0 ? 1 : 0 ;
-        returnValue += this.pokemons[this.nextAttack]._name + ' attack ' + this.pokemons[cible]._name + ' ';
+        returnValue += '<span class="' +
+            this.pokemons[this.nextAttack]._type._name + '">'+
+            this.pokemons[this.nextAttack]._name + '</span> attack <span class="' +
+            this.pokemons[cible]._type._name + '">' +
+            this.pokemons[cible]._name + '</span> '
         returnValue += this.pokemons[this.nextAttack]._attack.play(this.pokemons[cible]);
         this.nextAttack = cible;
         this.logger.push(returnValue);
     }
+
+    ngOnDestroy() { this.loop.unsubscribe(); }
 }

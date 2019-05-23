@@ -8,5 +8,6 @@
   <img  src="../../assets/explosion.gif" [ngClass]="{'explosion first' : pokemons[0].KO()}" width="150" height="150">
   <img  src="../../assets/explosion.gif" [ngClass]="{'explosion second' : pokemons[1].KO()}" width="150" height="150">
 </div>
-<button type="button" class="btn screenFight" (click)="pause=!pause" [ngClass]="{'btn-primary' : pause,'btn-secondary' : !pause}">{{!pause?"Pause":"Play"}}</button>
-<p *ngFor="let log of this.battleByStepService.logger.get();">{{log}}</p>
+<button type="button" class="btn screenFight" (click)="pause=!pause;this.battleByStepService.startAndStop(pause);"
+[ngClass]="{'btn-primary' : pause,'btn-secondary' : !pause}">{{!pause?"Pause":"Play"}}</button>
+<p *ngFor="let log of this.battleByStepService.logger.get();" [innerHTML]='log'></p>
