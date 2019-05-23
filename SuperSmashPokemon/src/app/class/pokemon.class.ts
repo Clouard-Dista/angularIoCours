@@ -1,5 +1,4 @@
 import {ElementType} from './ElementType.class';
-import {Type} from './type.class';
 import {Attack} from './attack.class';
 
 export class Pokemon {

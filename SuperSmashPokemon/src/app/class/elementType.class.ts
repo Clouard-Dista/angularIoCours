@@ -8,13 +8,4 @@ export class ElementType {
         this._name = name;
         this._resistance = resistance;
 	}
-    get id () : number{
-        return this.id;
-    }
-    get name () : string{
-        return this.name;
-    }
-    get resistance () : number[]{
-        return this.resistance;
-    }
 }

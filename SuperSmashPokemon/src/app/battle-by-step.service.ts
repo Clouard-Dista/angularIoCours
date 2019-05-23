@@ -10,7 +10,7 @@ export class BattleByStepService {
     private nextAttack: number = 0;
     private curentStep: number = 0;
 
-  	constructor(private logger: LoggerService) { }
+  	constructor(public logger: LoggerService) { }
 
     public param(pokemons: Pokemon[]): void {
         this.pokemons = pokemons;
@@ -24,6 +24,10 @@ export class BattleByStepService {
 
     public finish(): boolean {
         return this.pokemons[0].KO() || this.pokemons[1].KO();
+    }
+
+    public ready(): boolean {
+        return this.pokemons.length != 0;
     }
 
     public step(): string {
