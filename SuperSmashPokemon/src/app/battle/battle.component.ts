@@ -14,7 +14,7 @@ export class BattleComponent implements OnInit {
   pokemonOne: Pokemon;
   pokemonTwo: Pokemon;
   pause: boolean;
-  attackEvent = new EventEmitter<string>();
+  // attackEvent = new EventEmitter<string>();
 
   @Input()
   set selectedFighter(value: Pokemon[]) {
@@ -27,10 +27,11 @@ export class BattleComponent implements OnInit {
   }
 
   @Output() endFight = new EventEmitter<Pokemon>();
+  @Output() attackEvent = new EventEmitter<string>();
 
   constructor(private battleService: BattleService) {
-    this.attackEvent = battleService.getAttackEvent();
-    console.log("Attack event " +  this.attackEvent.toString);
+    // this.attackEvent = battleService.getAttackEvent();
+    // console.log("Attack event " +  this.attackEvent.toString);
   }
 
   public getPokemonStartFight(poke_one: Pokemon, poke_two: Pokemon): number {
@@ -42,7 +43,7 @@ export class BattleComponent implements OnInit {
 
   ngOnInit() {
     this.pause = true;
-    this.attackEvent = this.battleService.getAttackEvent();
+    // this.attackEvent = this.battleService.getAttackEvent();
   }
   first() {
     return this.pokemonOne._speed > this.pokemonTwo._speed ? this.pokemonOne : this.pokemonTwo;
@@ -61,9 +62,11 @@ export class BattleComponent implements OnInit {
           console.log(this.pokemonOne._name + ' attaque ' + this.pokemonTwo._name + ' de ' + this.pokemonOne._attack._power + ' point(s)');
           this.pokemonTwo.receiveDamage(this.pokemonOne._attack._power);
           console.log('La vie de ' + this.pokemonTwo._name + ' est a  ' + this.pokemonTwo._hp);
+          this.attackEvent.emit(this.pokemonOne._name + ' attaque ' + this.pokemonTwo._name + ' de ' + this.pokemonOne._attack._power + ' point(s)');
       } else {
           console.log(this.pokemonTwo._name + ' attaque ' + this.pokemonOne._name + ' de ' + this.pokemonTwo._attack._power + ' point(s)');
           this.pokemonOne.receiveDamage(this.pokemonTwo._attack._power);
+          this.attackEvent.emit(this.pokemonTwo._name + ' attaque ' + this.pokemonOne._name + ' de ' + this.pokemonTwo._attack._power + ' point(s)');
           console.log('La vie de ' + this.pokemonOne._name + ' est à ' + this.pokemonTwo._hp);
       }
     }

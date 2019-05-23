@@ -10,7 +10,7 @@
 <button type="button" class="btn" (click)="pause=!pause" [ngClass]="{'btn-primary' : pause,'btn-secondary' : !pause}">{{!pause?"Pause":"Play"}}</button>
 <table>
   <tr>
-      <app-battle-logger  *ngFor="let eventAttack of attackEvent" app-table-logger [attaqueEvent]="attackEvent"></app-battle-logger>
+      <app-battle-logger   app-table-logger [attaqueEvent]="attackEvent"></app-battle-logger>
   </tr>
 </table>
-<!-- <app-battle-logger [attaqueEvent]=()></app-battle-logger> -->
+<!-- <app-battle-logger *ngFor="let eventAttack of attackEvent" [attaqueEvent]=()></app-battle-logge> -->
