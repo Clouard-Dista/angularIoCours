@@ -59,7 +59,7 @@ export class BattleByStepService implements OnDestroy {
             this.start();
         }
     }
-    public step(): void {
+    public step(): boolean {
         if (this.finish()) {
             this.logger.push('The fight is over! <span class="' +
                 this.winner()._type._name + '">'+
@@ -78,6 +78,7 @@ export class BattleByStepService implements OnDestroy {
         returnValue += this.pokemons[this.nextAttack]._attack.play(this.pokemons[cible]);
         this.nextAttack = cible;
         this.logger.push(returnValue);
+        return true;
     }
 
     ngOnDestroy() { this.loop.unsubscribe(); }
