@@ -23,6 +23,13 @@ export class BattleComponent implements OnInit {
   @Output() endFight = new EventEmitter<Pokemon>();
   @Output() attackEvent = new EventEmitter<string>();
 
+  back(){
+    this.pokemons = [];
+    this.pause = true;
+    this.battleByStepService.logger.clear()
+    this.endFight.emit(this.battleByStepService.winner());
+  }
+
   constructor(private battleByStepService: BattleByStepService) {
     setInterval(() => {
       this.today = Date.now();
