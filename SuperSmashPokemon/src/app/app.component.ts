@@ -19,6 +19,7 @@ export class AppComponent {
     this.selectedFighterAllow=false;
   }
   endFight(win: Pokemon){
-    this.winner = win;
+    this.selectedFighter = [];
+    this.selectedFighterAllow=true;
   }
 }

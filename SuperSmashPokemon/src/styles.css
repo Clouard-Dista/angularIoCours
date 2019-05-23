@@ -56,7 +56,7 @@
 }
 .pokemon.first{
     left: 26px;
-    top: -217px;
+    top: -212px;
     animation: bouncefirst 0.35s ease infinite alternate;
 }
 .pokemon{

@@ -21,7 +21,7 @@ export class Attack {
         let bonus = cible._type._resistance[this._type._id];
         let dega = this._power * bonus;
         cible.pv(dega);
-        resumFight += 'and done ' + ( - this._power) + ' of damage, with ' + this._name + ' <img  src="../../assets/types/' + this._type._name + '.jpg" width="30" height="15"> ';
+        resumFight += 'and done ' + ( - dega) + ' of damage, with ' + this._name + ' <img  src="../../assets/types/' + this._type._name + '.jpg" width="30" height="15"> ';
         switch(bonus) {
           case 0:
             resumFight += 'and <span class="notEffective">It does not affect him.</span>';

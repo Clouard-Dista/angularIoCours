@@ -30,6 +30,10 @@ export class BattleByStepService implements OnDestroy {
         return this.pokemons[0].KO() || this.pokemons[1].KO();
     }
 
+    public winner(): Pokemon {
+        return this.pokemons[0].KO() ? this.pokemons[1] : this.pokemons[0];
+    }
+
     public ready(): boolean {
         return this.pokemons.length != 0;
     }
@@ -51,13 +55,15 @@ export class BattleByStepService implements OnDestroy {
     public startAndStop(pause: boolean){
         if(pause){
             this.pause();
-        }else{
+        }else if (!this.finish()){
             this.start();
         }
     }
     public step(): void {
         if (this.finish()) {
-            this.logger.push('The fight is over!');
+            this.logger.push('The fight is over! <span class="' + 
+                this.winner()._type._name + '">'+
+                this.winner()._name + '</span> Won ! ');
             this.loop.unsubscribe();
             return;
         }
