@@ -95,3 +95,6 @@
     from {transform: translateY(0);}
     to   {transform: translateY(-20px);}
 }
+.pauseCss{
+    animation-play-state: paused !important;
+}

@@ -18,7 +18,7 @@ export class Attack {
     let resumFight = "";
     const rand = 100 * Math.random();
     if (rand <= this._accuracy) {
-        let bonus = cible._type._resistance[this._type.id];
+        let bonus = cible._type._resistance[this._type._id];
         let dega = this._power * bonus;
         cible.pv(dega);
         resumFight += 'and done ' + ( - this._power) + ' of damage, with ' + this._name + '(' + this._type._name + ')';
