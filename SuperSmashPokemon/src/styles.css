@@ -55,6 +55,10 @@
     display: block !important;
     max-height: 298px;
     overflow: hidden;
+    color: white;
+}
+p.screenFight{
+    margin-top: 10px;
 }
 .pokemon.first{
     left: 26px;
