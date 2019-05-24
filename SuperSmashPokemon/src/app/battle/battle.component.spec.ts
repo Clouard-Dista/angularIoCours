@@ -19,23 +19,30 @@ describe('BattleComponent', () => {
     .compileComponents();
   }));
 
-  /*
   beforeEach(() => {
     fixture = TestBed.createComponent(BattleComponent);
     component = fixture.componentInstance;
-    component.pokemons[0] = new Pokemon(1, 'pikachu', new ElementType(1, 'toto', [1]), 30, 12, );
-    component.pokemons[1] = new Pokemon(1, 'dracaufeu', new ElementType(1, 'toto', [1]), 15, 12, );
+    let pokemons = [];
+    pokemons.push(new Pokemon(1, 'pikachu', new ElementType(1, 'toto', [1]), 30, 12, ));
+    pokemons.push(new Pokemon(1, 'dracaufeu', new ElementType(1, 'toto', [1]), 15, 12, ));
+    component.selectedFighter = pokemons;
     fixture.detectChanges();
-  });*/
+  });
 
   // id: number, name: string, type: ElementType, speed: number, pv: number, attack?: Attack ||pokemon
   // name: string, type: ElementType, accuracy: number, power: number ||attack
   it('should create', () => {
-    /*let element =  new ElementType(1, 'toto', [1]);
-    let attack = new Attack('attack_1', element, 20, 50);
-    let pA1 = new Pokemon(1, 'a', element, 10, 12, );
-    let pA2 = new Pokemon(1, 'a', element, 10, 12, );
-   component.getPokemonStartFight(pA1, pA2);*/
-  // expect(component).toBeTruthy();
+   expect(component).toBeTruthy();
   });
+
+  it('Back clear pokemons', () => {
+    component.back();
+    expect(component.pokemons).toEqual([]);
+   });
+
+  it('Back set pause true', () => {
+    component.back();
+    expect(component.pause).toEqual(true);
+   });
+
 });

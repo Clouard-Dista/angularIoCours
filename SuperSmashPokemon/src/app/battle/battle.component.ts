@@ -1,4 +1,3 @@
-import { Battle } from './../class/battle.class';
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Pokemon } from '../class/pokemon.class';
 import { BattleByStepService } from '../battle-by-step.service';
@@ -26,7 +25,7 @@ export class BattleComponent implements OnInit {
   back(){
     this.pokemons = [];
     this.pause = true;
-    this.battleByStepService.logger.clear()
+    this.battleByStepService.logger.clear();
     this.endFight.emit(this.battleByStepService.winner());
   }
 

@@ -12,14 +12,14 @@ export class AppComponent {
   selectedFighterAllow: boolean;
   winner: Pokemon;
   constructor(){
-    this.selectedFighterAllow=true;
+    this.selectedFighterAllow = true;
   }
   selectedFighterFnc(pkm: Pokemon[]){
     this.selectedFighter = pkm;
-    this.selectedFighterAllow=false;
+    this.selectedFighterAllow = false;
   }
   endFight(win: Pokemon){
     this.selectedFighter = [];
-    this.selectedFighterAllow=true;
+    this.selectedFighterAllow = true;
   }
 }

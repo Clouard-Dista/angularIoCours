@@ -32,6 +32,7 @@ export class SelectScreenComponent implements OnInit {
 
   selectedPKM(pkm: Pokemon, arr: number) {
     this.pokeSelected[arr] = pkm;
+
   }
 
   startfight() {

@@ -9,15 +9,10 @@ export class LoggerService {
   push(msg: string): void{
     this.logs.push(msg);
   }
-  get(): string[] { 
-    return this.logs; 
+  get(): string[] {
+    return this.logs;
   }
-  clear(): void { 
-    this.logs = []; 
+  clear(): void {
+    this.logs = [];
   }
 }
-      
-      
-
-
-    

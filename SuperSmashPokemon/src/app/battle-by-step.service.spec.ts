@@ -41,7 +41,6 @@ describe('BattleByStepService', () => {
   });
 
 
-
   it('was  finnish', () => {
     let aPokemon = new Pokemon(1, 'a', new ElementType(1, 'toto', [1]), 30, 12, );
     let bPokemon = new Pokemon(1, 'a', new ElementType(1, 'toto', [1]), 30, 12, );

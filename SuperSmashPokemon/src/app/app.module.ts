@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,11 @@ import { SelectFighterComponent } from './select-fighter/select-fighter.componen
 import { BattleComponent } from './battle/battle.component';
 import { SelectScreenComponent } from './select-screen/select-screen.component';
 import { BattleLoggerComponent } from './battle-logger/battle-logger.component';
+
+const  routes: Routes = [
+  { path: '', component: AppComponent } // path: '/'
+  ,{ path: 'pokemon/:id/:id2', component : BattleComponent}
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +24,8 @@ import { BattleLoggerComponent } from './battle-logger/battle-logger.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
