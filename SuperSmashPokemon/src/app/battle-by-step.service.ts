@@ -60,13 +60,6 @@ export class BattleByStepService implements OnDestroy {
         }
     }
     public step(): boolean {
-        if (this.finish()) {
-            this.logger.push('The fight is over! <span class="' +
-                this.winner()._type._name + '">'+
-                this.winner()._name + '</span> Won ! ');
-            this.loop.unsubscribe();
-            return;
-        }
         this.curentStep ++;
         let returnValue = 'Step ' + this.curentStep + ': <br>';
         const cible = this.nextAttack === 0 ? 1 : 0 ;
@@ -78,6 +71,13 @@ export class BattleByStepService implements OnDestroy {
         returnValue += this.pokemons[this.nextAttack]._attack.play(this.pokemons[cible]);
         this.nextAttack = cible;
         this.logger.push(returnValue);
+        if (this.finish()) {
+            this.logger.push('The fight is over! <span class="' +
+                this.winner()._type._name + '">'+
+                this.winner()._name + '</span> Won ! ');
+            this.loop.unsubscribe();
+            return false;
+        }
         return true;
     }
 

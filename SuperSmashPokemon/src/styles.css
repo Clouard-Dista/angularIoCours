@@ -14,6 +14,8 @@
 .select-fihgter{
 	height: 500px;
 	overflow-y: scroll;
+    scrollbar-color: black #1e1e1e;
+    scrollbar-width: thin;
 }
 .fight {
     height: 100px;
@@ -38,7 +40,7 @@
     font-weight: bold
 }
 .container-fluid {
-    width: 1400px;
+    max-width: 1400px;
     margin: auto;
 }
 .pokepixel{
@@ -116,3 +118,20 @@
 .spectre{text-shadow: 0 0 0.2em #705898 , 0 0 0.2em #705898;}
 .tenebres{text-shadow: 0 0 0.2em #705848 , 0 0 0.2em #705848;}
 .vol{text-shadow: 0 0 0.2em #A890F0 , 0 0 0.2em #A890F0;}
+.resumHp{
+    display: block;
+    float: right;
+}
+body{
+    background-image: url("https://www.pokemon-sunmoon.com/static/niji_www/img/global/backgrounds/xs_pattern_popbg.png");
+}
+.select-fihgter .btn{
+    border: none !important;
+    border-radius: 0px!important;
+}
+.btn-dimgray{
+    background-color: dimgray;
+}
+.btn-dimgray:hover{
+    background-color: slategrey;
+}

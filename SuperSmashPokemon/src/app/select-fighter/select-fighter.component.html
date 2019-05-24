@@ -1,7 +1,7 @@
 <div class ="select-fihgter">
   <div *ngFor="let pkm of pokelist; let i = index" class="col-xs-12 col-md-4 pokefor nopadding" (click)="selectid(i)">
     <div class="btn col-xs-12 nopadding"  [attr.disabled]="pkm._id == idSelected? true : null"
-    [ngClass]="{'btn-warning' : pkm._id == idSelected, 'btn-info' : pkm._id != idSelected}">
+    [ngClass]="{'btn-danger' : pkm._id == idSelected, 'btn-dimgray' : pkm._id != idSelected}">
       <div class="col-xs-6 nopadding">
         <b>{{pkm._name}}</b><br>
         <img  src="../../assets/types/{{pkm._type._name}}.jpg" width="50" height="25">

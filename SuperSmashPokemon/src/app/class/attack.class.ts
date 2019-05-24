@@ -19,7 +19,7 @@ export class Attack {
     const rand = 100 * Math.random();
     if (rand <= this._accuracy) {
         let bonus = cible._type._resistance[this._type._id];
-        let dega = this._power * bonus;
+        let dega = (this._power * bonus) + (Math.round( 100 * Math.random()) / 10 - 5);
         cible.pv(dega);
         resumFight += 'and done ' + ( - dega) + ' of damage, with ' + this._name + ' <img  src="../../assets/types/' + this._type._name + '.jpg" width="30" height="15"> ';
         switch(bonus) {

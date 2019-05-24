@@ -17,7 +17,7 @@ export class Pokemon {
         this._speed = speed;
         this._hp = pv;
         this._hpMax = pv;
-        this._attack = attack || new Attack('Hidden Powere' ,type ,80 , -20);
+        this._attack = attack || new Attack('Hidden Power' ,type ,80 , -20);
         this._id = (id < 10 ? '0' : '') + ( id < 100 ? '0' : '') + id;
     }
 
