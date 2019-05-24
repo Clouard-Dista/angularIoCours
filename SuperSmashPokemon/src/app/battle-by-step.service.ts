@@ -11,7 +11,7 @@ export class BattleByStepService implements OnDestroy {
     private pokemons: Pokemon[] = [];
     private nextAttack: number = 0;
     private curentStep: number = 0;
-    private loop;
+    private loop = null;
 
   	constructor(public logger: LoggerService) {
     }
@@ -81,5 +81,5 @@ export class BattleByStepService implements OnDestroy {
         return true;
     }
 
-    ngOnDestroy() { this.loop.unsubscribe(); }
+    ngOnDestroy() { if(this.loop != null){this.loop.unsubscribe(); }}
 }
